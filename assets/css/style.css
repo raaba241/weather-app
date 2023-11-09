@@ -1,0 +1,24 @@
+.currentWeather {
+    border-style: solid;
+    border: 1px;
+    border-color: black;
+    margin: 1rem;
+}
+
+header {
+    background-color: blue;
+    color: white;
+}
+
+.searchCity {
+    margin-left: 1rem;
+}
+
+main {
+    height: 80vh;
+}
+
+.bam {
+    background-color: bisque;
+    margin: 0.2rem;
+}
