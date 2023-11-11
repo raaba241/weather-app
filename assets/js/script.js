@@ -10,17 +10,42 @@ $(".searchBtn").on("click", function () {
         url: `https://api.openweathermap.org/data/2.5/weather?lat=${results[0].lat}&lon=${results[0].lon}&appid=27003bda8c7c57abc371f9200fd76b09&units=metric`,
         success: function (results) {
             $("#citynTime")[0].innerText = searchEl + " " + dayjs().format("MM-DD-YYYY")
-            $("#cityTemp")[0].innerText = "Temp: " + results.weather.temp + "C"
-            console.log(results)
+            $("#cityTemp")[0].innerText = "Temp: " + results.main.temp + "C"
+      
             var iconURL = "http://openweathermap.org/img/w/" + results.weather[0].icon + ".png"
             $("#icon")[0].setAttribute("src", iconURL)
+            $("#windVel")[0].innerText = "Wind Speed: "+ (results.wind.speed)*3.6 +" km/h"
+            $("#humidity")[0].innerText = "Humidity: "+ results.main.humidity +"%"
         },
         // Getting current weather info from the city 
       }).done(function () {
         $.ajax({
           url: `http://api.openweathermap.org/data/2.5/forecast?lat=${results[0].lat}&lon=${results[0].lon}&appid=27003bda8c7c57abc371f9200fd76b09&units=metric`,
-          success: function (results) {
-            // console.log(results);
+          success: function (results) { 
+            console.log(results)
+            for (var i = 0; i < 40; i++){
+                if ("2023-11-12 12:00:00" === results.list[i].dt_txt){
+                    $(".date1")[0].innerText = (results.list[i].dt)
+                    $(".tempCast1")[0].innerText = results.list[i].main.temp
+                    $(".windCast1")[0].innerText = Math.floor((results.list[i].wind.speed)*3.6)
+                }
+                else if ("2023-11-13 12:00:00" === results.list[i].dt_txt){
+                    $(".tempCast2")[0].innerText = results.list[i].main.temp
+                    $(".windCast2")[0].innerText = Math.floor((results.list[i].wind.speed)*3.6)
+                }
+                else if ("2023-11-14 12:00:00" === results.list[i].dt_txt){
+                    $(".tempCast3")[0].innerText = results.list[i].main.temp
+                    $(".windCast3")[0].innerText = Math.floor((results.list[i].wind.speed)*3.6)
+                }
+                else if ("2023-11-15 12:00:00" === results.list[i].dt_txt){
+                    $(".tempCast4")[0].innerText = results.list[i].main.temp
+                    $(".windCast4")[0].innerText = Math.floor((results.list[i].wind.speed)*3.6)
+                }
+                else if ("2023-11-16 12:00:00" === results.list[i].dt_txt){
+                    $(".tempCast5")[0].innerText = results.list[i].main.temp
+                    $(".windCast5")[0].innerText = Math.floor((results.list[i].wind.speed)*3.6)
+                }
+            }
           },
         });
       });
