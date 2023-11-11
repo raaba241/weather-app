@@ -2,7 +2,7 @@ $(".searchBtn").on("click", function () {
   var searchEl = $("#searchCity").val();
   $.ajax({
     // Parsing city name to a Lon and Lat
-    url: `http://api.openweathermap.org/geo/1.0/direct?q=${searchEl}&limit=1&appid=27003bda8c7c57abc371f9200fd76b09`,
+    url: `https://api.openweathermap.org/geo/1.0/direct?q=${searchEl}&limit=1&appid=27003bda8c7c57abc371f9200fd76b09`,
     success: function (results) {
       // Getting current weather info from the city
       $.ajax({
@@ -11,7 +11,7 @@ $(".searchBtn").on("click", function () {
             $("#citynTime")[0].innerText = searchEl + " " + dayjs().format("MM-DD-YYYY")
             $("#cityTemp")[0].innerText = "Temp: " + Math.round(results.main.temp) + "C"
       
-            var iconURL = "http://openweathermap.org/img/w/" + results.weather[0].icon + ".png"
+            var iconURL = "https://openweathermap.org/img/w/" + results.weather[0].icon + ".png"
             $("#icon")[0].setAttribute("src", iconURL)
             $("#windVel")[0].innerText = "Wind Speed: "+ (results.wind.speed)*3.6 +" km/h"
             $("#humidity")[0].innerText = "Humidity: "+ results.main.humidity +"%"
@@ -19,7 +19,7 @@ $(".searchBtn").on("click", function () {
         // Getting current weather info from the city 
       }).done(function () {
         $.ajax({
-          url: `http://api.openweathermap.org/data/2.5/forecast?lat=${results[0].lat}&lon=${results[0].lon}&appid=27003bda8c7c57abc371f9200fd76b09&units=metric`,
+          url: `https://api.openweathermap.org/data/2.5/forecast?lat=${results[0].lat}&lon=${results[0].lon}&appid=27003bda8c7c57abc371f9200fd76b09&units=metric`,
           success: function (results) { 
             console.log(results)
             for (var i = 0; i < 40; i++){
