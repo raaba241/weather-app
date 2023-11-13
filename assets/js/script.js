@@ -23,31 +23,31 @@ $(".searchBtn").on("click", function () {
           success: function (results) { 
             console.log(results)
             for (var i = 0; i < 40; i++){
-                if ("2023-11-12 12:00:00" === results.list[i].dt_txt){
+                if (i === 7){
                     $(".date1")[0].innerText = (results.list[i].dt_txt) 
                     $(".tempCast1")[0].innerText = "Temp: "+Math.round(results.list[i].main.temp)+"C"
                     $(".windCast1")[0].innerText = "Wind Speed: "+Math.round((results.list[i].wind.speed)*3.6)+"km/h"
                     $(".humidity1")[0].innerText = "Humidity: "+ results.list[i].main.humidity+"%"
                 }
-                else if ("2023-11-13 12:00:00" === results.list[i].dt_txt){
+                else if (i === 15 ){
                     $(".date2")[0].innerText = (results.list[i].dt_txt) 
                     $(".tempCast2")[0].innerText = "Temp: "+Math.round(results.list[i].main.temp)+"C"
                     $(".windCast2")[0].innerText = "Wind Speed: "+Math.round((results.list[i].wind.speed)*3.6)+"km/h"
                     $(".humidity2")[0].innerText = "Humidity: "+ results.list[i].main.humidity+"%"
                 }
-                else if ("2023-11-14 12:00:00" === results.list[i].dt_txt){
+                else if (i === 23){
                     $(".date3")[0].innerText = (results.list[i].dt_txt) 
                     $(".tempCast3")[0].innerText = "Temp: "+Math.round(results.list[i].main.temp)+"C"
                     $(".windCast3")[0].innerText = "Wind Speed: "+Math.round((results.list[i].wind.speed)*3.6)+"km/h"
                     $(".humidity3")[0].innerText = "Humidity: "+ results.list[i].main.humidity+"%"
                 }
-                else if ("2023-11-15 12:00:00" === results.list[i].dt_txt){
+                else if (i === 31){
                     $(".date4")[0].innerText = (results.list[i].dt_txt) 
                     $(".tempCast4")[0].innerText = "Temp: "+Math.round(results.list[i].main.temp)+"C"
                     $(".windCast4")[0].innerText = "Wind Speed: "+Math.round((results.list[i].wind.speed)*3.6)+"km/h"
                     $(".humidity4")[0].innerText = "Humidity: "+ results.list[i].main.humidity+"%"
                 }
-                else if ("2023-11-16 12:00:00" === results.list[i].dt_txt){
+                else if (i === 39){
                     $(".date5")[0].innerText = (results.list[i].dt_txt) 
                     $(".tempCast5")[0].innerText = "Temp: "+Math.round(results.list[i].main.temp)+"C"
                     $(".windCast5")[0].innerText = "Wind Speed: "+Math.round((results.list[i].wind.speed)*3.6)+"km/h"
