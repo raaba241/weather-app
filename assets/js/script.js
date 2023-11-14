@@ -22,6 +22,7 @@ $(".searchBtn").on("click", function () {
           url: `https://api.openweathermap.org/data/2.5/forecast?lat=${results[0].lat}&lon=${results[0].lon}&appid=27003bda8c7c57abc371f9200fd76b09&units=metric`,
           success: function (results) { 
             console.log(results)
+            // A loop that goes through till 40 and only selects every 8 interval to take the time 24 hours from when the api was called
             for (var i = 0; i < 40; i++){
                 if (i === 7){
                     $(".date1")[0].innerText = (results.list[i].dt_txt) 
@@ -51,13 +52,15 @@ $(".searchBtn").on("click", function () {
                     $(".date5")[0].innerText = (results.list[i].dt_txt) 
                     $(".tempCast5")[0].innerText = "Temp: "+Math.round(results.list[i].main.temp)+"C"
                     $(".windCast5")[0].innerText = "Wind Speed: "+Math.round((results.list[i].wind.speed)*3.6)+"km/h"
-                    $(".humidity5")[0].innerText = "Humidity: "+ results.list[i].main.humidity+"%"
-                    
+                    $(".humidity5")[0].innerText = "Humidity: "+ results.list[i].main.humidity+"%"   
                 }
             }
           },
         });
       });
+      
     },
   });
+  // Adds buttons dynamically after search button is clicked
+  $(".searchCity").append(`<button class=".searchBtn col-12">${searchEl}</button>`)
 });
