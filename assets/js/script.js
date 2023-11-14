@@ -13,6 +13,7 @@ $(".searchBtn").on("click", function () {
       
             var iconURL = "https://openweathermap.org/img/w/" + results.weather[0].icon + ".png"
             $("#icon")[0].setAttribute("src", iconURL)
+            $("#weatherIcon")[0].setAttribute("class", "visible")
             $("#windVel")[0].innerText = "Wind Speed: "+ (results.wind.speed)*3.6 +" km/h"
             $("#humidity")[0].innerText = "Humidity: "+ results.main.humidity +"%"
         },

@@ -33,3 +33,7 @@ main {
     background-color: bisque;
     margin: 0.2rem;
 }
+
+.invisible {
+    display:none
+}
